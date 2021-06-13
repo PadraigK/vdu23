@@ -24,7 +24,7 @@ const App = () => {
   }, [character]);
 
   return (
-    <div className="container p-8 mx-auto">
+    <div className="container lg:p-8 mx-auto">
       <PixelTable character={character} onCharacterChange={setCharacter} />
       <br />
       <h2 className="font-mono text-l">VDU 23, 254, {character.join(", ")}</h2>
