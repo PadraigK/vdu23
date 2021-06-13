@@ -22,9 +22,9 @@ const PixelRow = ({ rowValue, onRowChange }) => {
   return (
     <div className="table-row">
       {cells}
-      <div className="table-cell align-middle p-2">
+      <div className="table-cell align-middle">
         <input
-          className="w-12 text-center p-1"
+          className="w-12 text-center p-0 m-2"
           type="text"
           value={rowValue}
           onChange={(e) => {

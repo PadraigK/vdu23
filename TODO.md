@@ -7,4 +7,4 @@
 - [*] Deploy to vdu23.padraig.org
 - [ ] Drag to draw
 - [ ] color picker
-- [ ] make the pixels square on mobile
+- [*] make the pixels square on mobile

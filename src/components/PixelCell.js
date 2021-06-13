@@ -6,7 +6,7 @@ const PixelCell = ({ on, toggle }) => {
 
   return (
     <div
-      className={`table-cell h-16 w-16 border-2 ${background}`}
+      className={`table-cell h-11 w-11 lg:h-16 lg:w-16 border-2 ${background}`}
       onClick={() => {
         toggle(!on);
       }}
