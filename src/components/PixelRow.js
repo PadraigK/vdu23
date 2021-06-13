@@ -1,10 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import "../style/index.css";
 import PixelCell from "./PixelCell";
 
-const PixelRow = () => {
-  const [rowValue, setRowValue] = useState(0);
-
+const PixelRow = ({ rowValue, onRowChange }) => {
   const cells = [7, 6, 5, 4, 3, 2, 1, 0]
     .map((pos) => {
       return 1 << pos;
@@ -15,7 +13,7 @@ const PixelRow = () => {
           key={pos}
           on={rowValue & pos}
           toggle={() => {
-            setRowValue(rowValue ^ pos);
+            onRowChange(rowValue ^ pos);
           }}
         />
       );
@@ -30,7 +28,7 @@ const PixelRow = () => {
           type="text"
           value={rowValue}
           onChange={(e) => {
-            setRowValue(parseInt(e.target.value) || rowValue);
+            onRowChange(Number(e.target.value) || rowValue);
           }}
         />
       </div>

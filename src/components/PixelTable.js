@@ -1,20 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../style/index.css";
 import PixelRow from "./PixelRow";
 
-const PixelTable = () => {
+const PixelTable = ({ initial }) => {
+  const [character, setCharacter] = useState(initial);
+
+  useEffect(() => {
+    var urlSplit = window.location.href.split("?");
+    window.history.pushState({}, "VDU 23", urlSplit[0] + "?v=" + character);
+  }, [character]);
+
+  const pixelRows = character.map((row, index) => {
+    return (
+      <PixelRow
+        key={index}
+        rowValue={row}
+        onRowChange={(rowValue) => {
+          let allRows = [...character];
+          allRows[index] = rowValue;
+          setCharacter(allRows);
+        }}
+      />
+    );
+  });
+
   return (
     <div className="table mx-auto sm">
-      <div className="table-row-group">
-        <PixelRow key="0" />
-        <PixelRow key="1" />
-        <PixelRow key="2" />
-        <PixelRow key="3" />
-        <PixelRow key="4" />
-        <PixelRow key="5" />
-        <PixelRow key="6" />
-        <PixelRow key="7" />
-      </div>
+      <div className="table-row-group">{pixelRows}</div>
     </div>
   );
 };
